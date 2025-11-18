@@ -92,6 +92,7 @@ def clear_history():
 # ------------------------------------------------------------------------------
 # 五、日志配置（同时输出到控制台 + 文件）
 # ------------------------------------------------------------------------------
+os.makedirs("output", exist_ok=True)
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
@@ -370,7 +371,6 @@ def main(csv_file_path, journal_level, num_years, keywords,
     total_journals = len(todo_list)
     logging.info(
         f"跳过 {len(journal_list)-total_journals} 个已完成期刊，剩余 {total_journals} 个待抓。")
-    os.makedirs("output", exist_ok=True)
 
     total_count = 0
 
